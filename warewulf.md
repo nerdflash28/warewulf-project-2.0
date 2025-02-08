@@ -41,7 +41,7 @@
 
 ## to install warewulfd
 - installing from rpm
-    - `dnf install -y https://github.com/warewulf/warewulf/releases/download/v4.6.0rc1/warewulf-4.6.0rc1-1.el9.x86_64.rpm`
+    - `dnf install -y https://github.com/warewulf/warewulf/releases/download/v4.6.0rc2/warewulf-4.6.0rc2-1.el9.x86_64.rpm`
 - configure the config file
     ```bash
     ```
