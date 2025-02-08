@@ -1,3 +1,4 @@
+# **RockyLinux**
 ## Setup the machine
 - master 
     - change hostname of the machine
@@ -14,7 +15,8 @@
         - `systemctl stop firewalld`
         - `systemctl disable firewalld`
     - `ssh -l root 192.168.6.131`
-
+---
+# **Warewulf**
 ## to install yamllint (optional)
 - install epel9 package
     - `subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms && dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm`
@@ -42,10 +44,7 @@
 ## to install warewulfd
 - installing from rpm
     - `dnf install -y https://github.com/warewulf/warewulf/releases/download/v4.6.0rc2/warewulf-4.6.0rc2-1.el9.x86_64.rpm`
-- configure the config file
-    ```bash
-    ```
-- if we geterror related to yaml array we have to make changes in nodes.conf file
+- if we get error related to yaml array we have to make changes in nodes.conf file
     ```yaml
         # file: /etc/warewulf/nodes.conf
             # change this single line  
@@ -67,6 +66,7 @@
     - `systemctl is-active dhcpd tftp nfs-server warewulfd.service`
     - restart if warewulfd is not running
         - `systemctl start warewulfd`
+---
 
 ## configure node 
 - to configure node we first need to pull image 
@@ -179,7 +179,7 @@
 ## setting up slurm user 
 ```bash
 # setting up the munge authentication
-export MUNGEUSER=1010
+export MUNGEUSER=1001
 groupadd -g $MUNGEUSER munge
 useradd -m -c "MUNGE uid N gid Emporium" -d /var/lib/munge -u $MUNGEUSER -g munge -s /sbin/nologin munge
 export SLURMUSER=1002
@@ -190,4 +190,6 @@ chown munge:munge /etc/munge/munge.key
 chmod 400 /etc/munge/munge.key
 systemctl enable munge
 systemctl start munge
+```
+
 
